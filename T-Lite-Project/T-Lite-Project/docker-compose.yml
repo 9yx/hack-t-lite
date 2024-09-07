@@ -1,0 +1,42 @@
+version: '3'
+services:
+  back:
+    build: ./back
+    ports:
+      - "9000:9000"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@pgdb:5432/postgres
+      - BOT_BASE_URL=http://t-bot:9001
+    container_name: back
+    depends_on:
+      pgdb:
+        condition: service_healthy
+
+  t-bot:
+    build: ./t-bot
+    ports:
+      - "9001:9001"
+    container_name: t-bot
+    environment:
+      - BOT_TOKEN=6826654339:AAEAPU7Kcnk7HUIxk1I3y88xG6OQg94VVzk
+      - CORE_BASE_URL=http://back:9000
+
+  pgdb:
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    container_name: pgdb
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdbdata:/var/lib/postgresql/data/
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  pgdbdata: null
