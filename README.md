@@ -1,18 +1,19 @@
 # hack-t-lite
 
-`prepare_dataset.ipynb` - ноутбук для предподготовки данных для датасета
-`create_dataset.ipynb` - ноутбук для создания датасета, который использовался для обучения модели https://huggingface.co/AnatoliiPotapov/T-lite-instruct-0.1, используя https://github.com/turbo-llm/turbo-alignment
-`dataset_analysis.ipynb` - анализ данных в созданном датасете
-`teach_model.ipynb` - ноутбук для вызова turbo-alignment для обучения адаптера модели
-`test_model.ipynb` - ноутбук для тестирования обученного адаптера 
-`main.py` и `models.py` - реалиазация openapi из описания задачи для проверки модели.
-`T-Lite-Project/T-Lite-Project` - подпроект с реализацией Telegram бота.
-`commands` - директория с JSON c списком команд у Ассистентов
-`goals` - директория с JSON c списком целей у Ассистентов
-`promts` - директория с JSON c списком промтов для оркестрации запросов.
-`datasets` - директория с выборками данных.
+- `prepare_dataset.ipynb` - ноутбук для предподготовки данных для датасета
+- `create_dataset.ipynb` - ноутбук для создания датасета, который использовался для обучения модели https://huggingface.co/AnatoliiPotapov/T-lite-instruct-0.1, используя https://github.com/turbo-llm/turbo-alignment
+- `dataset_analysis.ipynb` - анализ данных в созданном датасете
+- `teach_model.ipynb` - ноутбук для вызова turbo-alignment для обучения адаптера модели
+- `test_model.ipynb` - ноутбук для тестирования обученного адаптера 
+- `main.py` и `models.py` - реалиазация openapi из описания задачи для проверки модели.
+- `T-Lite-Project/T-Lite-Project` - подпроект с реализацией Telegram бота.
+- `commands` - директория с JSON c списком команд у Ассистентов
+- `goals` - директория с JSON c списком целей у Ассистентов
+- `promts` - директория с JSON c списком промтов для оркестрации запросов.
+- `datasets` - директория с выборками данных.
 
 `config/t_bank_train.json` - конфиг используемый в обучении в `turbo-llm/turbo-alignment`:
+
 ```json
 {
   "train_dataset_settings": {
