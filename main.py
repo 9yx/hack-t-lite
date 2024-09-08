@@ -21,7 +21,8 @@ torch.manual_seed(42)
 #model_name="/home/user1/environments/train_model/model/T-lite-instruct-0.1"
 model_name="/home/user1/environments/train_model/model/T-lite-instruct-adapter/trainer"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
-model = AutoModelForCausalLM.from_pretrained(model_name, device_map="auto")
+model = AutoModelForCausalLM.from_pretrained(model_name, device_map='auto',
+    max_memory={0: "32GB", 1: "32GB", 2: "32GB", 3: "32GB"})
 model.generation_config.pad_token_id = tokenizer.pad_token_id
 
 def process_prompt(query):
